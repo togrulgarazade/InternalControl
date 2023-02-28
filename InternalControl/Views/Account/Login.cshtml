@@ -16,6 +16,13 @@
 </head>
 <body>
 
+    <div class="spinner-wrapper">
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
 
 
     <div class="container" id="container">
@@ -26,7 +33,6 @@
                 <div class="social-container">
                     <a asp-controller="Account" asp-action="FacebookLogin" class="social"><i class="fab fa-facebook-f"></i></a>
                     <a asp-controller="Account" asp-action="GoogleLogin" class="social"><i class="fab fa-google"></i></a>
-                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                 </div>
                 <span>sosial şəbəkələrlə qeydiyyatdan keç</span>
                 <input autocomplete="off" required asp-for="Email" placeholder="Email" />
@@ -41,7 +47,6 @@
                 <div class="social-container">
                     <a asp-controller="Account" asp-action="FacebookLogin" class="social"><i class="fab fa-facebook-f"></i></a>
                     <a asp-controller="Account" asp-action="GoogleLogin" class="social"><i class="fab fa-google"></i></a>
-                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                 </div>
                 <span>sosial şəbəkələrlə daxil ol</span>
                 <input autocomplete="off" required asp-for="Email" placeholder="Email" />
@@ -66,7 +71,10 @@
         </div>
     </div>
 
+    <script src="~/assets/js/welcome/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+    <script src="~/assets/js/common/reloader.js"></script>
     <script src="~/assets/js/logreg/script.js"></script>
     <script src="https://kit.fontawesome.com/eb23b2d8dd.js" crossorigin="anonymous"></script>
+
 </body>
 </html>

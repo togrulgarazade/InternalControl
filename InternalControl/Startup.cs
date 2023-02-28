@@ -4,6 +4,7 @@ using Core.Entities;
 using Data.DAL;
 using Data.Repositories;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Authentication.OAuth;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -74,7 +75,7 @@ namespace InternalControl
                 options.ClientSecret = "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";
             });
 
-
+       
 
             //services.AddScoped<IProductService, ProductService>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
