@@ -1,3 +1,69 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@{ ViewData["Title"] = "Home Page"; }
+
+
+
+<ul class="navbar-nav ml-auto">
+
+    
+
+    <li class="nav-item text-center dropdown">
+        @if (User.Identity.IsAuthenticated)
+        {
+            <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                @User.Identity.Name
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                @if (User.IsInRole("Admin"))
+                {
+                    <a style="cursor: pointer" asp-area="Admin" asp-controller="Dashboard" asp-action="Index" class="dropdown-item my-login-btn text-center">
+                        <i class="fas fa-user"></i>
+                        <p style="display: inline-block; margin-left: 2px">Admin Panel</p>
+                    </a>
+                }
+
+                @if (User.IsInRole("SuperModerator"))
+                {
+                    <a style="cursor: pointer" asp-area="Admin" asp-controller="Dashboard" asp-action="Index" class="dropdown-item my-login-btn text-center">
+                        <i class="fas fa-user"></i>
+                        <p style="display: inline-block; margin-left: 2px">Idarəçi Paneli</p>
+                    </a>
+                }
+
+                @if (User.IsInRole("Moderator"))
+                {
+                    <a style="cursor: pointer" asp-area="Admin" asp-controller="Dashboard" asp-action="Index" class="dropdown-item my-login-btn text-center">
+                        <i class="fas fa-user"></i>
+                        <p style="display: inline-block; margin-left: 2px">Nəzarətçi Paneli</p>
+                    </a>
+                }
+
+                @if (User.IsInRole("User"))
+                {
+                    <a style="cursor: pointer" asp-controller="Account" asp-action="UserPage" class="dropdown-item my-login-btn text-center">
+                        <i class="fas fa-user"></i>
+                        <p style="display: inline-block; margin-left: 2px">Hesabım</p>
+                    </a>
+                }
+
+            <br />
+
+                <a style="cursor: pointer" asp-controller="Account" asp-action="Logout" asp-route-ReturnUrl="@Context.Request.Path.Value" class="dropdown-item my-login-btn text-center">
+                    <i class="bi bi-box-arrow-left"></i>
+                    <p style="display: inline-block; margin-left: 2px">Çıxış</p>
+                </a>
+            </div>
+        }
+        else
+        {
+            <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-user"></i> Hesab
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a style="cursor: pointer" asp-controller="Account" asp-action="Login" asp-route-ReturnUrl="@Context.Request.Path.Value" class="dropdown-item my-login-btn text-center"><i class="bi bi-box-arrow-in-right"></i> <p style="display: inline-block ;margin-left: 2px">Daxil ol</p></a>
+            </div>
+        }
+    </li>
+
+
+</ul>

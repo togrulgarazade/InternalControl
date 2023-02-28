@@ -1,6 +1,8 @@
 ﻿using Business.Validators.Account;
+using Core;
 using Core.Entities;
 using Data.DAL;
+using Data.Repositories;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -60,19 +62,22 @@ namespace InternalControl
                 options.AccessDeniedPath = new PathString("/Error/Problem");
             });
 
-            //services.AddAuthentication().AddFacebook(options =>
-            //{
-            //    options.AppId = "747003403352509";
-            //    options.AppSecret = "09ae3b4a78d9087a00ff5ea15247cd99";
-            //});
+            services.AddAuthentication().AddFacebook(options =>
+            {
+                options.AppId = "936620971022431";
+                options.AppSecret = "07edb7b9b8a1497c7a111aa1ec248bb5";
+            });
 
-            //services.AddAuthentication().AddGoogle(options =>
-            //{
-            //    options.ClientId = "972970270872-e7mqi91turg3d1euome2tf8uji98setv.apps.googleusercontent.com";
-            //    options.ClientSecret = "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";
-            //});
+            services.AddAuthentication().AddGoogle(options =>
+            {
+                options.ClientId = "356116869940-m9lp4v4lukcorjlliqidc95oknc942ub.apps.googleusercontent.com";
+                options.ClientSecret = "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";
+            });
+
+
 
             //services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -93,13 +98,14 @@ namespace InternalControl
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Welcome}/{action=Index}/{id?}");
             });
         }
     }

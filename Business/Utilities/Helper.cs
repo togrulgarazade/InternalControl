@@ -14,7 +14,7 @@ namespace Business.Utilities
         public static bool SendEmail(string userEmail, string msgArea, string subject)
         {
             MailMessage mailMessage = new MailMessage();
-            mailMessage.From = new MailAddress("contact.togshop@gmail.com");
+            mailMessage.From = new MailAddress("tognet.helper@gmail.com");
             mailMessage.To.Add(new MailAddress(userEmail));
 
             mailMessage.Subject = subject;
@@ -22,7 +22,7 @@ namespace Business.Utilities
             mailMessage.Body = msgArea;
 
             SmtpClient client = new SmtpClient();
-            client.Credentials = new NetworkCredential("contact.togshop@gmail.com", "ohtiqxjdkojlpqez");
+            client.Credentials = new NetworkCredential("tognet.helper@gmail.com", "hwhqnmkvyyjztxdk");
             client.Host = "smtp.gmail.com";
             client.Port = 587;
             client.EnableSsl = true;

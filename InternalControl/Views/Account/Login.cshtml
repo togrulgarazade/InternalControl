@@ -1,0 +1,72 @@
+﻿@model LogRegViewModel
+@{
+    Layout = null;
+}
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>ToG Net - Account</title>
+    <link rel="icon" type="image/x-icon" href="~/assets/img/images/tognetlogonobg.svg">
+
+
+    <link href="~/assets/css/logreg/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://kit.fontawesome.com/eb23b2d8dd.css" crossorigin="anonymous">
+
+</head>
+<body>
+
+
+
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+            <form method="post">
+                <h1>Hesab Yaradın</h1>
+                <div class="social-container">
+                    <a asp-controller="Account" asp-action="FacebookLogin" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a asp-controller="Account" asp-action="GoogleLogin" class="social"><i class="fab fa-google"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>sosial şəbəkələrlə qeydiyyatdan keç</span>
+                <input autocomplete="off" required asp-for="Email" placeholder="Email" />
+                <input autocomplete="off" required asp-for="Password" placeholder="Şifrə" />
+                <button asp-controller="Account" asp-action="Register" type="submit">Qeydiyyat</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+            <form method="post">
+                <h1>Daxil olun</h1>
+                <div class="social-container">
+                    <a asp-controller="Account" asp-action="FacebookLogin" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a asp-controller="Account" asp-action="GoogleLogin" class="social"><i class="fab fa-google"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>sosial şəbəkələrlə daxil ol</span>
+                <input autocomplete="off" required asp-for="Email" placeholder="Email" />
+                <input autocomplete="off" required asp-for="Password" placeholder="Şifrə" />
+                <a asp-controller="Account" asp-action="ForgetPass">Şifrənizi unutmusunuz?</a>
+                <button asp-controller="Account" asp-action="Login" type="submit">Daxil ol</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Xoş gəldin!</h1>
+                    <p>Hesabın var? Şəxsi hesabına daxil ol!</p>
+                    <button class="ghost buttonimportant" id="signIn">Daxil ol</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Salam, Dostum!</h1>
+                    <p>Hesabın yoxdur? Qeydiyyatdan keç və bizə qoşul!</p>
+                    <button class="ghost buttonimportant" id="signUp">Qeydiyyat</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/assets/js/logreg/script.js"></script>
+    <script src="https://kit.fontawesome.com/eb23b2d8dd.js" crossorigin="anonymous"></script>
+</body>
+</html>
