@@ -1,0 +1,76 @@
+﻿@model ResetPassViewModel
+@{
+    Layout = null;
+}
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>ToG Net - Şifrəni yenilə</title>
+    <link rel="icon" type="image/x-icon" href="~/assets/img/images/tognetlogonobg.svg">
+
+
+    <link href="~/assets/css/logreg/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://kit.fontawesome.com/eb23b2d8dd.css" crossorigin="anonymous">
+
+</head>
+<body>
+
+    <div class="spinner-wrapper">
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+
+
+
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+            <form method="post">
+                <h1>Şifrəni yenilə</h1>
+                <span>Yeni şifrəni təyin et və unutma ! </span>
+                <input type="hidden" asp-for="Email" />
+                <input type="hidden" asp-for="Token" />
+                <input autocomplete="off" required asp-for="NewPassword" placeholder="Yeni şifrə" />
+                <input autocomplete="off" required asp-for="ConfirmPassword" placeholder="Yeni şifrənin təkrarı" />
+                <button asp-controller="Account" asp-action="ResetPass" type="submit">Yenilə</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+            <form method="post">
+                <h1>Şifrəni yenilə</h1>
+                <span>Yeni şifrəni təyin et və unutma ! </span>
+                <input type="hidden" asp-for="Email" />
+                <input type="hidden" asp-for="Token" />
+                <input autocomplete="off" required asp-for="NewPassword" placeholder="Yeni şifrə" />
+                <input autocomplete="off" required asp-for="ConfirmPassword" placeholder="Yeni şifrənin təkrarı" />
+                <button asp-controller="Account" asp-action="ResetPass" type="submit">Yenilə</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Salam, Dostum!</h1>
+                    <p>Şifrəni yeniləmək üçün yeni şifrəni və təkrarını daxil et!</p>
+                    <button class="ghost buttonimportant" id="signIn">Şifrəni yenilə</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Salam, Dostum!</h1>
+                    <p>Şifrəni yeniləmək üçün yeni şifrəni və təkrarını daxil et!</p>
+                    <button class="ghost buttonimportant" id="signUp">Şifrəni yenilə</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/assets/js/welcome/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+    <script src="~/assets/js/common/reloader.js"></script>
+    <script src="~/assets/js/logreg/script.js"></script>
+    <script src="https://kit.fontawesome.com/eb23b2d8dd.js" crossorigin="anonymous"></script>
+
+</body>
+</html>
